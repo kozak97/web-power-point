@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>total_page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="total_page">
+        <div class="write">
+            <p></p>
+        </div>
+        <div class="menu_all">
+            <div class="menu">
+                <div class="heder_menu">
+                    <div class="button_one"></div>
+                    <div class="button_two"></div>
+                    <div class="button_three"></div>
+                </div>
+                <div class="variant_menu">
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Наведення:</label>
+                        <input type="checkbox" class="checkboxInput" ><br>
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Ширина:</label>
+                        <input type="number" class="numberInput" name="numberInput" min="0" max="1000" value="100" step="1"><br>
+                        <input type="range" class="slider" name="slider" min="0" max="1000" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Висота:</label>
+                        <input type="number" class="numberInput_1" name="numberInput_1" min="0" max="1000" value="100" step="1"><br>
+                        <input type="range" class="slider_1" name="slider_1" min="0" max="1000" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Радіус кутів:</label>
+                        <input type="number" class="numberInput_2" name="numberInput_2" min="0" max="100" value="0" step="1"><br>
+                        <input type="range" class="slider_2" name="slider_2" min="0" max="100" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Кут нахилу:</label>
+                        <input type="number" class="numberInput_3" name="numberInput_3" min="0" max="100" value="0" step="1"><br>
+                        <input type="range" class="slider_3" name="slider_3" min="0" max="100" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Товщина рамки:</label>
+                        <input type="number" class="numberInput_4" name="numberInput_4" min="0" max="50" value="2" step="1"><br>
+                        <input type="range" class="slider_4" name="slider_4" min="0" max="50" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Колір рамки:</label>
+                        <input type="color" class="colorPicker" name="colorPicker">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Шар:</label>
+                        <input type="number" class="numberInput_5" name="numberInput_5" min="0" max="1000" value="1"step="1"><br>
+                        <input type="range" class="slider_5" name="slider_5" min="0" max="50" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Колір фону:</label>
+                        <input type="color" class="colorPicker_1" name="colorPicker_1" value="#ffffff">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Тінь-х:</label>
+                        <input type="number" class="numberInput_6" name="numberInput_6" min="0" max="500" value="0" step="1"><br>
+                        <input type="range" class="slider_6" name="slider_6" min="0" max="500" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Тінь-у:</label>
+                        <input type="number" class="numberInput_7" name="numberInput_7" min="0" max="500" value="0" step="1"><br>
+                        <input type="range" class="slider_7" name="slider_7" min="0" max="500" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Тінь-розмити:</label>
+                        <input type="number" class="numberInput_8" name="numberInput_8" min="0" max="1000" value="0" step="1"><br>
+                        <input type="range" class="slider_8" name="slider_8" min="0" max="50" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Тінь-розмір:</label>
+                        <input type="number" class="numberInput_10" name="numberInput_10" min="0" max="1000" value="0" step="1"><br>
+                        <input type="range" class="slider_10" name="slider_10" min="0" max="50" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Колір тіні:</label>
+                        <input type="color" class="colorPicker_2" name="colorPicker_3">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Тінь-прозорість:</label>
+                        <input type="number" class="numberInput_9" name="numberInput_9" min="0" max="99" value="99" step="1"><br>
+                        <input type="range" class="slider_9" name="slider_9" min="0" max="99" value="10" step="1">
+                    </div>
+
+                </div>
+                <div class="variant_menu2">
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Завантажити зображення:</label>
+                        <br>
+                        <input type="file" class="imageInput" accept="image/*">
+                        <br>
+                        <button class="buttonImg" >Додати зображення</button>
+
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <textarea rows="4" cols="50" class="textarea_name" placeholder="Веди текст:"></textarea>
+                        <button class="buttonArea" >Додати текст</button>
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Розмір тексту:</label>
+                        <input type="number" class="numberInput11" name="numberInput" min="0" max="1000" value="20" step="1"><br>
+                        <input type="range" class="slider11" name="slider" min="0" max="1000" value="10" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Колір тексту:</label>
+                        <input type="color" class="colorPicker_4" name="colorPicker_4" value="#ffffff">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Курсив:</label>
+                        <input type="checkbox" class="checkboxInput1" ><br>
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Жирність шрифту</label>
+                        <input type="number" class="numberInput12" name="numberInput" min="0" max="900" value="0" step="1"><br>
+                        <input type="range" class="slider12" name="slider" min="0" max="900" value="0" step="1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Текст по середині</label>
+                        <input type="radio" class="checkboxInput2" name="group1" >
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Текст з ліва</label>
+                        <input type="radio" class="checkboxInput3" name="group1" >
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Текст з права</label>
+                        <input type="radio" class="checkboxInput4"  name="group1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Текст по всій ширині</label>
+                        <input type="radio" class="checkboxInput5"  name="group1">
+                    </div>
+                    <br>
+                    <div class="border_div">
+                        <label class="text">Оберіть шрифт:</label>
+                        <select class="fontSelector" >
+                            <option value="Arial, sans-serif">Arial, sans-serif</option>
+                            <option value="Helvetica, sans-serif">Helvetica, sans-serif</option>
+                            <option value="Verdana, sans-serif">Verdana, sans-serif</option>
+                            <option value="Tahoma, sans-serif">Tahoma, sans-serif</option>
+                            <option value="Calibri, sans-serif">Calibri, sans-serif</option>
+                            <option value="Open Sans, sans-serif">Open Sans, sans-serif</option>
+                            <option value="Times New Roman, serif">Times New Roman, serif</option>
+                            <option value="Georgia, serif">Georgia, serif</option>
+                            <option value="Garamond, serif">Garamond, serif</option>
+                            <option value="Palatino, serif">Palatino, serif</option>
+                            <option value="Baskerville, serif">Baskerville, serif</option>
+                            <option value="Courier New, monospace">Courier New, monospace</option>
+                            <option value="Consolas, monospace">Consolas, monospace</option>
+                            <option value="Monaco, monospace">Monaco, monospace</option>
+                            <option value="Andale Mono, monospace">Andale Mono, monospace</option>
+                        </select>
+                    </div>
+
+                </div>
+                
+    
+                <div class="bottom_menu">
+                    <div class="button_one_bottom"></div>
+                    <div class="button_two_bottom"></div>
+                    <div class="button_three_bottom"></div>
+                </div>
+                
+            </div>
+            
+        </div>
+        
+
+        
+       
+    </div>
+    
+    <script src="functions.js"></script>
+    <script src="functions_1.js"></script>
+    <script src="functions_2.js"></script>
+    <script src="functions_3.js"></script>
+    <script src="functions_4.js"></script>
+    <script src="functions_5.js"></script>
+
+</body>
+</html>

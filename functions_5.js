@@ -1,0 +1,53 @@
+let keyDownCount = 0;
+let keyDownR=0
+let menuAll = document.querySelector('.menu_all');
+document.addEventListener('keydown', (event) => {
+    if (event.altKey && event.key === 'h') {
+        if (keyDownCount===0){
+            menuAll.style.display='none';
+            keyDownCount++;
+        }else if (keyDownCount===1){
+            menuAll.style.display='block';
+            keyDownCount=0
+        }
+    }
+    if (event.altKey && event.key === 'r') {
+        let write = document.querySelector('.total_page')
+        let childWrite = write.firstElementChild;
+        if (keyDownR===0){
+            childWrite.innerHTML=`Alt+h---відкриває меню з створення фігур. </br>
+            Alt+r---Відкриває підказки.`
+            childWrite.style.display='block';
+            keyDownR++
+        }else if (keyDownR===1){
+            keyDownR=0;
+            childWrite.style.display='none';
+        }
+    }
+});
+
+let deletButton = document.querySelector('.button_one_bottom')
+deletButton.addEventListener('click', function(){
+    let deleteObjeckt = document.querySelector(`.${document.title}`);
+    let excludedClasses = ['total_page', 'menu', 'write','menu_all', 'heder_menu',
+    'button_one', 'button_two','button_threed', 'variant_menu',
+    'border_div','text','numberInput','slider','numberInput_1',
+    'slider_1','numberInput_2','slider_2','numberInput_3',
+    'slider_3','numberInput_4','slider_4','colorPicker','numberInput_5',
+    'slider_5','colorPicker_1','numberInput_6','slider_6','numberInput_7',
+    'slider_7','numberInput_8','slider_8','numberInput_10','slider_10',
+    'colorPicker_2','numberInput_9','slider_9','variant_menu2',
+    'imageInput','buttonImg','textarea_name','numberInput11',
+    'slider11','checkboxInput1','numberInput12','slider12',
+    'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
+    'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
+    'button_three_bottom'];
+
+    if (!excludedClasses.includes(deleteObjeckt.className)) {
+        deleteObjeckt.remove();
+        document.title='total_page';
+    } else {
+        document.title='total_page';
+        pass
+    }
+})
