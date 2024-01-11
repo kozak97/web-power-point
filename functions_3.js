@@ -6,10 +6,10 @@ function track_title(){
     }
 }
 
-let button_hover = document.querySelector('.button_two_bottom');
-button_hover.addEventListener('click', function(){
-  console.log('button')
-})
+// let button_hover = document.querySelector('.button_two_bottom');
+// button_hover.addEventListener('click', function(){
+//   console.log('button')
+// })
 
 
 let range = document.querySelector('.slider');

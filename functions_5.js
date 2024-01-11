@@ -51,3 +51,38 @@ deletButton.addEventListener('click', function(){
         pass
     }
 })
+
+let countCopy = 0;
+let elementCopy;
+let cloneElement;
+let copyBtn = document.querySelector('.button_two_bottom');
+let NewCopyClass = 0;
+
+copyBtn.addEventListener('click', function () {
+  if (countCopy === 0) {
+    elementCopy = document.querySelector(`.${document.title}`);
+    if (elementCopy) {
+      cloneElement = elementCopy.cloneNode(true);
+      countCopy = 1 - countCopy;
+      copyBtn.style.backgroundImage = "url('./img/paste.png')"
+    } else {
+      console.error('Елемент для копіювання не знайдено.');
+    }
+  } else if (countCopy === 1) {
+    if (cloneElement) {
+      let classElemCopy = cloneElement.className;
+      cloneElement.classList.remove(`${classElemCopy}`);
+      cloneElement.classList.add(`ElementCopy_${NewCopyClass}`);
+      elementCopy = document.querySelector(`.${document.title}`);
+      copyBtn.style.backgroundImage = "url('./img/copy.png')"
+
+      if (elementCopy) {
+        elementCopy.append(cloneElement);
+        countCopy = 1 - countCopy;
+        NewCopyClass++;
+      } else {
+        console.error('Цільовий елемент для вставлення не знайдено.');
+      }
+    }
+  }
+});

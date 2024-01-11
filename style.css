@@ -210,16 +210,15 @@
 }
 
 .button_two_bottom{
-  background-image: url('./img/chenge.png');
+  background-image: url('./img/copy.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: rgb(251, 251, 251);
 }
 .button_two_bottom:hover{
-  background-image: url('./img/chenge_rgb.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background-color: rgb(157, 247, 217);
+  
 }
 
 .border_div{

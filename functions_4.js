@@ -3,6 +3,7 @@ let button3 = document.querySelector('.button_one');
 let m1 = document.querySelector('.variant_menu');
 let m2 = document.querySelector('.variant_menu2');
 let count_b = 0;
+m2.style.display = "none";
 
 button1.addEventListener('click', function() {
     if (count_b >= 1) {
