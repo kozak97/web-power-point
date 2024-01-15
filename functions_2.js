@@ -33,6 +33,20 @@
 
 // let isDragging = false;
 // let offsetX, offsetY;
+
+let excludedClassesMove = ['write','menu_all', 'heder_menu',
+    'button_one', 'button_two','button_threed', 'variant_menu',
+    'border_div','text','numberInput','slider','numberInput_1',
+    'slider_1','numberInput_2','slider_2','numberInput_3',
+    'slider_3','numberInput_4','slider_4','colorPicker','numberInput_5',
+    'slider_5','colorPicker_1','numberInput_6','slider_6','numberInput_7',
+    'slider_7','numberInput_8','slider_8','numberInput_10','slider_10',
+    'colorPicker_2','numberInput_9','slider_9','variant_menu2',
+    'imageInput','buttonImg','textarea_name','numberInput11',
+    'slider11','checkboxInput1','numberInput12','slider12',
+    'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
+    'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
+    'button_three_bottom'];
 document.addEventListener('DOMContentLoaded', function () {
     document.body.style.userSelect = 'none';
 });
@@ -93,9 +107,15 @@ class DraggableElement {
 let activeDraggable = null;
 
 document.addEventListener('DOMContentLoaded', function () {
-    document.addEventListener('dblclick', function (event) {
+    document.addEventListener('click', function (event) {
         let clickedElement = event.target.className;
-        document.title = `${clickedElement}`;
+        
+        if (!excludedClassesMove.includes(clickedElement)) {
+            document.title = `${clickedElement}`;
+            ElemetnValue(clickedElement);
+        } else {
+            
+        }
         let element = document.querySelector(`.${clickedElement}`);
 
         if (activeDraggable) {
@@ -118,5 +138,34 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+function ElemetnValue(Elemetn){
+    if (Elemetn !== 'total_page'){
+        let ChengeWidth = document.querySelector(`.${Elemetn}`).style.width
+        let widthMenu = document.querySelector('.numberInput');
+        let widthMenuS = document.querySelector('.slider');
+        widthMenu.value=parseInt(ChengeWidth);
+        widthMenuS.value=parseInt(ChengeWidth);
 
+        let ChengeHeight = document.querySelector(`.${Elemetn}`).style.height;
+        let heightMenu = document.querySelector('.numberInput_1');
+        let heightMenuS = document.querySelector('.slider_1');
+        heightMenu.value=parseInt(ChengeHeight);
+        heightMenuS.value=parseInt(ChengeHeight);
+
+        let ChengeRadius = document.querySelector(`.${Elemetn}`).style.borderRadius;
+        let RadiusMenu = document.querySelector('.numberInput_2');
+        let RadiusMenuS = document.querySelector('.slider_2');
+        RadiusMenu.value=parseInt(ChengeRadius);
+        RadiusMenuS.value=parseInt(ChengeRadius);
+
+        let ChengeRotate = document.querySelector(`.${Elemetn}`).style.transform;
+        let ChengeRotateNumber = ChengeRotate.replace("rotate(", "").replace("deg)", "");
+        let RotateMenu = document.querySelector('.numberInput_3');
+        let RotateMenuS = document.querySelector('.slider_3');
+        RotateMenu.value=parseInt(ChengeRotateNumber);
+        RotateMenuS.value=parseInt(ChengeRotateNumber);
+
+    }
+   
+}
 
