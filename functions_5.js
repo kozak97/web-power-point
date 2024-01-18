@@ -30,7 +30,7 @@ let deletButton = document.querySelector('.button_one_bottom')
 deletButton.addEventListener('click', function(){
     let deleteObjeckt = document.querySelector(`.${document.title}`);
     let excludedClasses = ['total_page', 'menu', 'write','menu_all', 'heder_menu',
-    'button_one', 'button_two','button_threed', 'variant_menu',
+    'button_one', 'button_two','button_three', 'variant_menu',
     'border_div','text','numberInput','slider','numberInput_1',
     'slider_1','numberInput_2','slider_2','numberInput_3',
     'slider_3','numberInput_4','slider_4','colorPicker','numberInput_5',
@@ -41,7 +41,7 @@ deletButton.addEventListener('click', function(){
     'slider11','checkboxInput1','numberInput12','slider12',
     'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
-    'button_three_bottom'];
+    'button_three_bottom','buttonArea','colorPicker_4','menu'];
 
     if (!excludedClasses.includes(deleteObjeckt.className)) {
         deleteObjeckt.remove();

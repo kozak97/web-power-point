@@ -35,7 +35,7 @@
 // let offsetX, offsetY;
 
 let excludedClassesMove = ['write','menu_all', 'heder_menu',
-    'button_one', 'button_two','button_threed', 'variant_menu',
+    'button_one', 'button_two','button_three', 'variant_menu',
     'border_div','text','numberInput','slider','numberInput_1',
     'slider_1','numberInput_2','slider_2','numberInput_3',
     'slider_3','numberInput_4','slider_4','colorPicker','numberInput_5',
@@ -46,7 +46,7 @@ let excludedClassesMove = ['write','menu_all', 'heder_menu',
     'slider11','checkboxInput1','numberInput12','slider12',
     'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
-    'button_three_bottom'];
+    'button_three_bottom','buttonArea','menu'];
 document.addEventListener('DOMContentLoaded', function () {
     document.body.style.userSelect = 'none';
 });
@@ -109,31 +109,26 @@ let activeDraggable = null;
 document.addEventListener('DOMContentLoaded', function () {
     document.addEventListener('click', function (event) {
         let clickedElement = event.target.className;
-        
+        let element
         if (!excludedClassesMove.includes(clickedElement)) {
             document.title = `${clickedElement}`;
             ElemetnValue(clickedElement);
+            // Заброна пересовувати меню
+            element = document.querySelector(`.${clickedElement}`);
+            if (activeDraggable) {
+                activeDraggable.destroy();
+            }
+            activeDraggable = new DraggableElement(element);
+            event.stopPropagation();
+            // Заброна пересовувати меню
+
         } else {
             
         }
-        let element = document.querySelector(`.${clickedElement}`);
-
-        if (activeDraggable) {
-            activeDraggable.destroy();
-        }
-
-        activeDraggable = new DraggableElement(element);
-
-        // зміна тексту
-        let text_chenge = element.firstElementChild;
-        let textForArea= document.querySelector('.textarea_name');
-        textForArea.value=text_chenge.innerHTML;
+        // Заброна пересовувати меню
+            // Раніше було так
+        // Заброна пересовувати меню
         
-        // зміна тексту
-
-
-        // Зупиняємо подальше розповсюдження події, щоб не викликати обробник для батьківського елемента
-        event.stopPropagation();
     });
 });
 
@@ -164,6 +159,54 @@ function ElemetnValue(Elemetn){
         let RotateMenuS = document.querySelector('.slider_3');
         RotateMenu.value=parseInt(ChengeRotateNumber);
         RotateMenuS.value=parseInt(ChengeRotateNumber);
+
+
+        let ChengeBorderWidth = document.querySelector(`.${Elemetn}`).style.border;
+        let ChengeBorderNumber = parseInt(ChengeBorderWidth)
+        let borderMenu = document.querySelector('.numberInput_4');
+        let borderMenuS = document.querySelector('.slider_4');
+        borderMenu.value=parseInt(ChengeBorderNumber);
+        borderMenuS.value=parseInt(ChengeBorderNumber);
+
+        let ChengeLayer = document.querySelector(`.${Elemetn}`).style.zIndex;
+        let ChengeLayerNumber = parseInt(ChengeLayer)
+        let LayerMenu = document.querySelector('.numberInput_5');
+        let LayerMenuS = document.querySelector('.slider_5');
+        LayerMenu.value=parseInt(ChengeLayerNumber);
+        LayerMenuS.value=parseInt(ChengeLayerNumber);
+
+        let ChengeShadowX = document.querySelector(`.${Elemetn}`).style.boxShadow;
+        console.log(ChengeShadowX)
+
+        let ChengeBagColor = document.querySelector(`.${Elemetn}`).style.backgroundColor;
+        let BagColor = document.querySelector('.colorPicker_1');
+        BagColor.value=rgbToHex(ChengeBagColor);
+
+        let ChengeBorderColor = document.querySelector(`.${Elemetn}`).style.borderColor;
+        let borderMenuColor = document.querySelector('.colorPicker');
+        borderMenuColor.value=rgbToHex(ChengeBorderColor);
+
+        // Функція для конвертації RGB в HEX
+        function rgbToHex(color) {
+            // Отримати складові RGB з рядка стилів
+            let rgbArray = color.match(/\d+/g);
+            
+            // Конвертувати в HEX та повернути
+            return "#" + componentToHex(parseInt(rgbArray[0])) + componentToHex(parseInt(rgbArray[1])) + componentToHex(parseInt(rgbArray[2]));
+        }
+
+        function componentToHex(c) {
+            var hex = c.toString(16);
+            return hex.length == 1 ? "0" + hex : hex;
+        }
+        
+
+        let text_chenge = document.querySelector(`.${Elemetn}`).firstElementChild;
+        if(text_chenge!==null){
+            let textForArea= document.querySelector('.textarea_name');        
+            textForArea.value=text_chenge.innerHTML;
+        }
+     
 
     }
    

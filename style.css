@@ -104,7 +104,10 @@
 .menu {
   scrollbar-width: none;
 }
-
+.menu_all{
+  position: absolute;
+  left: 82%;
+}
 
 
 .heder_menu{
