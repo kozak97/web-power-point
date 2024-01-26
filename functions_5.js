@@ -41,7 +41,9 @@ deletButton.addEventListener('click', function(){
     'slider11','checkboxInput1','numberInput12','slider12',
     'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
-    'button_three_bottom','buttonArea','colorPicker_4','menu'];
+    'button_three_bottom','buttonArea','colorPicker_4','menu','variant_menu3','textFuntions',
+    'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
+    'ButtonReset','ButtonActions','textMoveS'];
 
     if (!excludedClasses.includes(deleteObjeckt.className)) {
         deleteObjeckt.remove();

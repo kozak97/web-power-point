@@ -46,7 +46,9 @@ let excludedClassesMove = ['write','menu_all', 'heder_menu',
     'slider11','checkboxInput1','numberInput12','slider12',
     'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
-    'button_three_bottom','buttonArea','menu'];
+    'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
+    'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
+    'ButtonReset','ButtonActions','textMoveS'];
 document.addEventListener('DOMContentLoaded', function () {
     document.body.style.userSelect = 'none';
 });
@@ -85,9 +87,9 @@ class DraggableElement {
         if (this.isDragging) {
             const newLeft = event.clientX - this.offsetX - this.parentRect.left;
             const newTop = event.clientY - this.offsetY - this.parentRect.top;
-
             this.element.style.left = newLeft + 'px';
             this.element.style.top = newTop + 'px';
+            previosMove(newLeft, newTop)
         }
     }
 
@@ -113,6 +115,9 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!excludedClassesMove.includes(clickedElement)) {
             document.title = `${clickedElement}`;
             ElemetnValue(clickedElement);
+
+            let chengeElemenInput = document.querySelector('.elemetnAddText')
+            chengeElemenInput.innerHTML=clickedElement;
             // Заброна пересовувати меню
             element = document.querySelector(`.${clickedElement}`);
             if (activeDraggable) {
@@ -210,5 +215,13 @@ function ElemetnValue(Elemetn){
 
     }
    
+}
+
+function previosMove(x, y){
+    let previosX = document.querySelector('.textMovePX')
+    let previosY = document.querySelector('.textMovePY')
+    previosX.value=x;
+    previosY.value=y;
+
 }
 

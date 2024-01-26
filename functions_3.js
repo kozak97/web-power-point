@@ -6,6 +6,18 @@ function track_title(){
     }
 }
 
+
+let leftInput = document.querySelector('.textMovePX')
+leftInput.addEventListener('input', function(){
+  let left = leftInput.value;
+  track_title().style.left=parseInt(left)+'px';
+})
+let topInput = document.querySelector('.textMovePY')
+topInput.addEventListener('input', function(){
+  let top = topInput.value;
+  track_title().style.top=parseInt(top)+'px';
+})
+
 // let button_hover = document.querySelector('.button_two_bottom');
 // button_hover.addEventListener('click', function(){
 //   console.log('button')
