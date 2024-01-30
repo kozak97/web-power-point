@@ -17,7 +17,7 @@ let excludedClassesMoveF = ['write','menu_all', 'heder_menu',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
     'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
     'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
-    'ButtonReset','ButtonActions','textMoveS'];
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput'];
 
 
 function clickAnyElementClick(event) {

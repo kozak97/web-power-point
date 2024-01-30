@@ -2,6 +2,7 @@
 
 let count_class=0;
 let button_two = document.querySelector('.button_two');
+
 button_two.addEventListener('click', add_elemetn);
 
 function add_elemetn (){
@@ -58,6 +59,14 @@ function add_elemetn (){
   p.className='fontStyle';
   newElement.appendChild(p);
   perntElement.appendChild(newElement);
+  p.style.cssText=`
+    font-size: 20px;
+    color: #000000;
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  `
   count_class++
 
 }

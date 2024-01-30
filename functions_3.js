@@ -1,7 +1,23 @@
+
+let excludedClassesMoveM = ['write','menu_all', 'heder_menu',
+    'button_one', 'button_two','button_three', 'variant_menu',
+    'border_div','text','numberInput','slider','numberInput_1',
+    'slider_1','numberInput_2','slider_2','numberInput_3',
+    'slider_3','numberInput_4','slider_4','colorPicker','numberInput_5',
+    'slider_5','colorPicker_1','colorPicker_4','numberInput_6','slider_6','numberInput_7',
+    'slider_7','numberInput_8','slider_8','numberInput_10','slider_10',
+    'colorPicker_2','numberInput_9','slider_9','variant_menu2',
+    'imageInput','buttonImg','textarea_name','numberInput11',
+    'slider11','checkboxInput1','numberInput12','slider12',
+    'checkboxInput2','checkboxInput3','checkboxInput4','checkboxInput5',
+    'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
+    'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
+    'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput'];
 function track_title(){
     let title = document.title;
-    let elemetn_chenge = document.querySelector(`.${title}`)
-    if (title!='menu'){
+    if (!excludedClassesMoveM.includes(title)){
+      let elemetn_chenge = document.querySelector(`.${title}`)
       return elemetn_chenge;
     }
 }
@@ -301,6 +317,5 @@ textColor.addEventListener('input', function(){
     textColorChenge =  document.querySelector('.colorPicker_4').value;
     let childElementFont = track_title();
     let childElement = childElementFont.firstElementChild;
-    childElement.style.color = textColorChenge;
-    
+    childElement.style.color = textColorChenge;    
 })
