@@ -48,7 +48,9 @@ let excludedClassesMove = ['write','menu_all', 'heder_menu',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
     'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
     'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
-    'ButtonReset','ButtonActions','textMoveS','checkboxInput','colorPicker_4', 'fontStyle', 'selectFamily'];
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput','colorPicker_4', 'fontStyle', 'selectFamily' ,'elemet_0',
+    'addElement_0','elemet_1','addElement_1','elemet_2','addElement_2',
+    'elemet_3','addElement_3','createFunctionTouch'];
 document.addEventListener('DOMContentLoaded', function () {
     document.body.style.userSelect = 'none';
 });
@@ -116,8 +118,11 @@ document.addEventListener('DOMContentLoaded', function () {
             document.title = `${clickedElement}`;
             ElemetnValue(clickedElement);
 
-            let chengeElemenInput = document.querySelector('.elemetnAddText')
-            chengeElemenInput.innerHTML=clickedElement;
+            let chengeElemenInput = document.querySelectorAll('.elemetnAddText')
+            // chengeElemenInput.innerHTML=clickedElement;
+            for (let i=0; i<=1; i++){
+                chengeElemenInput[i].innerHTML=clickedElement
+            }
             // Заброна пересовувати меню
             element = document.querySelector(`.${clickedElement}`);
             if (activeDraggable) {
@@ -330,4 +335,9 @@ function previosMove(x, y){
     previosY.value=y;
 
 }
+
+
+
+
+
 

@@ -17,7 +17,9 @@ let excludedClassesMoveF = ['write','menu_all', 'heder_menu',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
     'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
     'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
-    'ButtonReset','ButtonActions','textMoveS','checkboxInput'];
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput', 'button_label','elemet_0',
+    'addElement_0','elemet_1','addElement_1','elemet_2','addElement_2',
+    'elemet_3','addElement_3','createFunctionTouch'];
 
 
 function clickAnyElementClick(event) {
@@ -65,10 +67,7 @@ document.addEventListener('keydown', function (event) {
       }
       
       moveObjectTo(list[1], list[2], elementMoveSelector, list[3]); 
-
-    // }else if(event.altKey && event.key === 'n'){
-    //   list = NextMoveObject[elementMove]
-    //   moveObjectTo(list[1], list[2], elementMoveSelector, list[3]); 
+ 
 
     }else if (event.altKey && event.key === 'g'){
       let listGroup = elementMoveSelector.children;
@@ -137,3 +136,80 @@ document.addEventListener('keydown', function (event) {
 
 
 
+
+// функіця 2
+
+let btn1 = document.querySelector('.addElement_0');
+let btn2 = document.querySelector('.addElement_1');
+let btn3 = document.querySelector('.addElement_2');
+let btn4 = document.querySelector('.addElement_3');
+let btn5 = document.querySelector('.createFunctionTouch');
+let textInputOne;
+btn1.addEventListener('click',function(){
+  textInputOne= document.querySelector('.elemet_0')
+  textInputOne.value = clickAny.className
+})
+
+let textInputTwo;
+btn2.addEventListener('click',function(){
+  textInputTwo = document.querySelector('.elemet_1')
+  textInputTwo.value = clickAny.className
+})
+
+let textInputThree;
+btn3.addEventListener('click',function(){
+  textInputThree = document.querySelector('.elemet_2')
+  textInputThree.value = clickAny.className
+})
+
+let textInputFour;
+btn4.addEventListener('click',function(){
+  textInputFour = document.querySelector('.elemet_3')
+  textInputFour.value = clickAny.className
+})
+
+ObjectFunctionTouch={
+
+}
+btn5.addEventListener('click',function(){
+  let ElOne = document.querySelector(`.${textInputOne.value}`);
+  let ElTwo = document.querySelector(`.${textInputTwo.value}`);
+  let ElThree = document.querySelector(`.${textInputThree.value}`);
+  let ElFour = document.querySelector(`.${textInputFour.value}`);
+  ObjectFunctionTouch[ElOne.className]=[ElOne,ElTwo,ElThree,ElFour];
+  textInputOne.value='';
+  textInputTwo.value='';
+  textInputThree.value='';
+  textInputFour.value='';
+})
+
+let x_f4;
+let x_f3;
+let x_f1;
+let x_f2;
+
+function moveSpace(f1, f2) {
+    x_f1 = f1;
+    x_f2 = f2;
+    x1 = x_f1 ? x_f1.getBoundingClientRect() : null;
+    x2 = x_f2 ? x_f2.getBoundingClientRect() : null;
+    return x1 && x2 && !(x1.right < x2.left || x1.left > x2.right || x1.bottom < x2.top || x1.top > x2.bottom);
+}
+
+document.addEventListener('mouseup', function (event) {
+  if (!excludedClassesMoveF.includes(event.target.className)){
+    if (event.target.className in ObjectFunctionTouch){
+      let key = event.target.className
+      if (moveSpace(ObjectFunctionTouch[key][0],ObjectFunctionTouch[key][1])) {
+        ObjectFunctionTouch[key][2].style.display = 'none';
+        ObjectFunctionTouch[key][3].style.display = 'block'; 
+      } else {
+        ObjectFunctionTouch[key][2].style.display = 'block';
+        ObjectFunctionTouch[key][3].style.display = 'none'; 
+      }
+    }else{
+      console.log('----')
+    }
+  }
+    
+});

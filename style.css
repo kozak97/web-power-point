@@ -298,11 +298,11 @@
 
 
 /* меню3 */
-.textMovePX, .textMovePY, .textMoveNX, .textMoveNY, .textMoveS{
+.textMovePX, .textMovePY, .textMoveNX, .textMoveNY, .textMoveS, .elemet_0, .elemet_1, .elemet_2, .elemet_3{
   border: 1px solid black;
   font-size: 18px;
   width: 100%;
-  height: 25px;
+  height: 30px;
   border-radius: 5px;
   margin-top: 5px;
 }
@@ -318,7 +318,7 @@
   border-radius: 5px;
 }
 
-.ButtonAddMove, .ButtonReset, .ButtonActions{
+.ButtonAddMove, .ButtonReset, .ButtonActions, .addElement_0, .addElement_1, .addElement_2, .addElement_3, .createFunctionTouch{
   border: 1px solid black;
   border-radius: 5px;
   font-size: 18px;
@@ -328,7 +328,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
 }
-.ButtonAddMove:hover, .ButtonReset:hover, .ButtonActions:hover{
+.ButtonAddMove:hover, .ButtonReset:hover, .ButtonActions:hover, .addElement_0:hover, .addElement_1:hover, .addElement_2:hover, .addElement_3:hover, .createFunctionTouch:hover{
   background-color: rgb(183, 210, 255);
 }
 .textFuntions{
@@ -336,7 +336,7 @@
   text-align: center;
 }
 
-.position{
+.position, .button_label{
   border: 1px solid rgb(96, 169, 248);
   border-radius: 5px;
   padding: 5px;

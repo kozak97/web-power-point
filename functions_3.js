@@ -13,7 +13,9 @@ let excludedClassesMoveM = ['write','menu_all', 'heder_menu',
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
     'button_three_bottom','buttonArea','menu', 'variant_menu3','textFuntions',
     'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
-    'ButtonReset','ButtonActions','textMoveS','checkboxInput'];
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput','elemet_0',
+    'addElement_0','elemet_1','addElement_1','elemet_2','addElement_3',
+    'elemet_3','addElement_3','createFunctionTouch'];
 function track_title(){
     let title = document.title;
     if (!excludedClassesMoveM.includes(title)){
@@ -319,3 +321,6 @@ textColor.addEventListener('input', function(){
     let childElement = childElementFont.firstElementChild;
     childElement.style.color = textColorChenge;    
 })
+
+
+

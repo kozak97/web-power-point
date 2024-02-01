@@ -43,7 +43,9 @@ deletButton.addEventListener('click', function(){
     'fontSelector','bottom_menu','button_one_bottom','button_two_bottom',
     'button_three_bottom','buttonArea','colorPicker_4','menu','variant_menu3','textFuntions',
     'elementInput','elemetnAddText','position','textMovePX','textMovePY','textMoveNX','textMoveNY','ButtonAddMove',
-    'ButtonReset','ButtonActions','textMoveS','checkboxInput'];
+    'ButtonReset','ButtonActions','textMoveS','checkboxInput','elemet_0',
+    'addElement_0','elemet_1','addElement_1','elemet_2','addElement_3',
+    'elemet_3','addElement_2','createFunctionTouch'];
 
     if (!excludedClasses.includes(deleteObjeckt.className)) {
         deleteObjeckt.remove();
