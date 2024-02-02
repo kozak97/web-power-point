@@ -59,14 +59,14 @@ document.addEventListener('keydown', function (event) {
     let list=[]
     if(event.altKey && event.key === 'm'){
       if (buttoM==0){
-        list = NextMoveObject[elementMove]
+        list = NextMoveObject[elementMove];
         buttoM++;
       }else if(buttoM==1){
         list = PreviosMoveObject[elementMove]
         buttoM=0;
       }
       
-      moveObjectTo(list[1], list[2], elementMoveSelector, list[3]); 
+      moveObjectToM(list[1], list[2], elementMoveSelector, list[3]); 
  
 
     }else if (event.altKey && event.key === 'g'){
@@ -82,12 +82,18 @@ document.addEventListener('keydown', function (event) {
         let list;
         if (buttonGroupC === 0) {
           list = NextMoveObject[className];
+          if(list == undefined){
+            continue;
+          }
         } else if (buttonGroupC === 1) {
           list = PreviosMoveObject[className];
+          if(list == undefined){
+            continue;
+          }
         }
       
         let elementMoveSelector = document.querySelector(`.${className}`);
-        moveObjectTo(list[1], list[2], elementMoveSelector, list[3]);
+        moveObjectToG(list[1], list[2], elementMoveSelector, list[3]);
       }
       
       // Збільшення тут, поза циклом
@@ -97,7 +103,7 @@ document.addEventListener('keydown', function (event) {
         buttonGroupC = 0;
       }
     }
-    function moveObjectTo(destinationX, destinationY, object, sp) {
+    function moveObjectToG(destinationX, destinationY, object, sp) {
             // Отримуємо поточні координати об'єкта
             let currentX = object.offsetLeft;
             let currentY = object.offsetTop;
@@ -127,12 +133,96 @@ document.addEventListener('keydown', function (event) {
           
               if (stepCount < steps) {
                 requestAnimationFrame(animate);
+                // відстеження торкання
+                let test=document.title;
+                
+                let childrenElementTouch = document.querySelector(`.${test}`).children;
+                for (let i =0; i<=childrenElementTouch.length; i++){
+                  if(childrenElementTouch[i]==undefined){
+                    continue;
+                  }
+                  if(childrenElementTouch[i].className in ObjectFunctionTouch){
+                    let elementTest = childrenElementTouch[i].className;
+                    if (!excludedClassesMoveF.includes(elementTest)){
+                      if (elementTest in ObjectFunctionTouch){
+                        let key = elementTest;
+                        if (moveSpace(ObjectFunctionTouch[key][0],ObjectFunctionTouch[key][1])) {
+                          ObjectFunctionTouch[key][2].style.display = 'none';
+                          ObjectFunctionTouch[key][3].style.display = 'block'; 
+                        } else {
+                          ObjectFunctionTouch[key][2].style.display = 'block';
+                          ObjectFunctionTouch[key][3].style.display = 'none'; 
+                        }
+                      }else{
+                        console.log('----')
+                      }
+                  }
+                 }
+                }
               }
             }
           
             animate();
+            
+    }
+    function moveObjectToM(destinationX, destinationY, object, sp) {
+            // Отримуємо поточні координати об'єкта
+            let currentX = object.offsetLeft;
+            let currentY = object.offsetTop;
+          
+            // Визначаємо відстань, яку потрібно пройти
+            let distanceX = destinationX - currentX;
+            let distanceY = destinationY - currentY;
+          
+            // Задаємо кількість кроків і час, протягом якого триватиме рух
+            let steps = sp; // Кількість кроків
+            let duration = 1000; // Час у мілісекундах
+          
+            // Розраховуємо величину кроку для кожного напрямку
+            let stepX = distanceX / steps;
+            let stepY = distanceY / steps;
+          
+            // Запускаємо анімацію руху
+            let stepCount = 0;
+            function animate() {
+              currentX += stepX;
+              currentY += stepY;
+          
+              object.style.left = currentX + 'px';
+              object.style.top = currentY + 'px';
+          
+              stepCount++;
+          
+              if (stepCount < steps) {
+                requestAnimationFrame(animate);
+                // відстеження торкання
+                let test=document.title;
+                
+                if(test in ObjectFunctionTouch){
+                  if (!excludedClassesMoveF.includes(test)){
+                    if (test in ObjectFunctionTouch){
+                      let key = test;
+                      if (moveSpace(ObjectFunctionTouch[key][0],ObjectFunctionTouch[key][1])) {
+                        ObjectFunctionTouch[key][2].style.display = 'none';
+                        ObjectFunctionTouch[key][3].style.display = 'block'; 
+                      } else {
+                        ObjectFunctionTouch[key][2].style.display = 'block';
+                        ObjectFunctionTouch[key][3].style.display = 'none'; 
+                      }
+                    }else{
+                      console.log('----')
+                    }
+                }
+               }
+                
+              }
+            }
+          
+            animate();
+            
     }
 });
+
 
 
 
@@ -196,7 +286,10 @@ function moveSpace(f1, f2) {
     return x1 && x2 && !(x1.right < x2.left || x1.left > x2.right || x1.bottom < x2.top || x1.top > x2.bottom);
 }
 
-document.addEventListener('mouseup', function (event) {
+document.addEventListener('mouseup', startTouch);
+
+
+function startTouch(event){
   if (!excludedClassesMoveF.includes(event.target.className)){
     if (event.target.className in ObjectFunctionTouch){
       let key = event.target.className
@@ -211,5 +304,4 @@ document.addEventListener('mouseup', function (event) {
       console.log('----')
     }
   }
-    
-});
+}
